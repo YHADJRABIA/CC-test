@@ -1,0 +1,21 @@
+header {
+  @include flexCenter(column, center);
+}
+.banner {
+  padding: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  height: 40vw;
+  object-fit: contain;
+}
+/*----------- Responsive --------------*/
+@include respond-to("medium") {
+  .banner {
+    height: 30rem;
+  }
+}
+
+@include respond-to("large") {
+  .banner {
+    height: 40rem;
+  }
+}

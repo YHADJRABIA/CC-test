@@ -1,0 +1,89 @@
+.form_card {
+  position: relative;
+  width: 95vw;
+  padding: 2rem 0;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  @include flexCenter(column, center);
+
+  & > :last-child {
+    margin-top: 2rem;
+  }
+}
+
+form {
+  @include flexCenter(column, center);
+}
+
+.form-field {
+  position: relative;
+  @include flexCenter(column-reverse, space-between, center, flex-start);
+  padding-bottom: 4rem;
+
+  & input {
+    transition: opacity 0.3s ease-in-out;
+    font-weight: bold;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid $secondary-gray;
+
+    &:focus {
+      border-bottom: 2px solid black;
+    }
+
+    &:placeholder-shown + label {
+      cursor: text;
+      max-width: 78.66%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform-origin: left bottom;
+      transform: translate(0, 2.125rem) scale(1.2);
+    }
+
+    // Placeholder's styles
+    &:focus::-webkit-input-placeholder {
+      font-weight: initial;
+      opacity: 0.9;
+    }
+
+    &:not(:placeholder-shown) + label,
+    &:focus + label {
+      transform: translate(0, 0) scale(1);
+      cursor: pointer;
+    }
+  }
+
+  & label {
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+/* .phone-prefix {
+  position: relative;
+  left: -2.5rem;
+  top: -2.5rem;
+} */
+
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  .form-group {
+    @include flexCenter(row, space-around);
+    width: 100%;
+  }
+
+  .large-field input {
+    width: 40rem;
+  }
+  .form_card {
+    width: 65rem;
+  }
+}
+@include respond-to("large") {
+}
